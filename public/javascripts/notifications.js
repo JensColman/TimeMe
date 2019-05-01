@@ -1,163 +1,163 @@
-/*jshint esversion: 6 */
+// /*jshint esversion: 6 */
 
-// ---------------------- Firebase ---------------------- \\
+// // ---------------------- Firebase ---------------------- \\
 
-// Niet vergeten om de beveiliging van de database terug aan te zetten: https://firebase.google.com/docs/web/setup.
+// // Niet vergeten om de beveiliging van de database terug aan te zetten: https://firebase.google.com/docs/web/setup.
 
-// Initialize Firebase.
-var config = {
-     apiKey: "AIzaSyDpyti5var4iXdnKG_EIpAZgTKQRnjFLps",
-     authDomain: "countdown-timer-9db4d.firebaseapp.com",
-     databaseURL: "https://countdown-timer-9db4d.firebaseio.com",
-     projectId: "countdown-timer-9db4d",
-     storageBucket: "countdown-timer-9db4d.appspot.com",
-     messagingSenderId: "70274656018"
-};
+// // Initialize Firebase.
+// var config = {
+//      apiKey: "AIzaSyDpyti5var4iXdnKG_EIpAZgTKQRnjFLps",
+//      authDomain: "countdown-timer-9db4d.firebaseapp.com",
+//      databaseURL: "https://countdown-timer-9db4d.firebaseio.com",
+//      projectId: "countdown-timer-9db4d",
+//      storageBucket: "countdown-timer-9db4d.appspot.com",
+//      messagingSenderId: "70274656018"
+// };
 
-firebase.initializeApp(config);
+// firebase.initializeApp(config);
 
-const messaging = firebase.messaging();
-const database = firebase.database();
-const pushBtn = document.getElementById("push-button");
+// const messaging = firebase.messaging();
+// const database = firebase.database();
+// const pushBtn = document.getElementById("push-button");
 
-// Voeg een knop toe waarbij de gebruiker kan subscriben om push notifications te ontvangen.
-// Meer info op https://css-tricks.com/implementing-push-notifications-setting-firebase/.
+// // Voeg een knop toe waarbij de gebruiker kan subscriben om push notifications te ontvangen.
+// // Meer info op https://css-tricks.com/implementing-push-notifications-setting-firebase/.
 
-let userToken = null;
-let isSubscribed = false;
+// let userToken = null;
+// let isSubscribed = false;
 
-// Add the public key generated from the console here.
-// Zie https://firebase.google.com/docs/cloud-messaging/js/client
-messaging.usePublicVapidKey("BFB3g18JS2IChDumBW_6NNzFpdsSYJZS_h1oXz-rxah3NA_32edeR3h9S5M0bvVGR6XsV0UQ8Se3sotPxWGJ6OE");
+// // Add the public key generated from the console here.
+// // Zie https://firebase.google.com/docs/cloud-messaging/js/client
+// messaging.usePublicVapidKey("BFB3g18JS2IChDumBW_6NNzFpdsSYJZS_h1oXz-rxah3NA_32edeR3h9S5M0bvVGR6XsV0UQ8Se3sotPxWGJ6OE");
 
-// function initializePush() {
-//      userToken = localStorage.getItem("pushToken");
-//
-//      isSubscribed = userToken !== null;
-//      updateBtn();
-//
-//      pushBtn.addEventListener("click", () => {
-//           pushBtn.disabled = true;
-//
-//           if (isSubscribed) {
-//                return unsubscribeUser();
-//           }
-//           return subscribeUser();
-//      });
-// }
+// // function initializePush() {
+// //      userToken = localStorage.getItem("pushToken");
+// //
+// //      isSubscribed = userToken !== null;
+// //      updateBtn();
+// //
+// //      pushBtn.addEventListener("click", () => {
+// //           pushBtn.disabled = true;
+// //
+// //           if (isSubscribed) {
+// //                return unsubscribeUser();
+// //           }
+// //           return subscribeUser();
+// //      });
+// // }
 
-// function updateBtn() {
-//      if (Notification.permission === "denied") {
-//           pushBtn.textContent = "Subscription blocked";
-//           return;
-//      }
-//
-//      pushBtn.textContent = isSubscribed ? "Unsubscribe" : "Subscribe";
-//      pushBtn.disabled = false;
-// }
+// // function updateBtn() {
+// //      if (Notification.permission === "denied") {
+// //           pushBtn.textContent = "Subscription blocked";
+// //           return;
+// //      }
+// //
+// //      pushBtn.textContent = isSubscribed ? "Unsubscribe" : "Subscribe";
+// //      pushBtn.disabled = false;
+// // }
 
-// function subscribeUser() {
-//      messaging.requestPermission()
-//           .then(() => messaging.getToken())
-//           .then(token => {
-//
-//                updateSubscriptionOnServer(token);
-//                isSubscribed = true;
-//                userToken = token;
-//                localStorage.setItem('pushToken', token);
-//                updateBtn();
+// // function subscribeUser() {
+// //      messaging.requestPermission()
+// //           .then(() => messaging.getToken())
+// //           .then(token => {
+// //
+// //                updateSubscriptionOnServer(token);
+// //                isSubscribed = true;
+// //                userToken = token;
+// //                localStorage.setItem('pushToken', token);
+// //                updateBtn();
+// //           })
+// //           .catch(err => console.log('Denied', err));
+// // }
+
+
+// // function updateSubscriptionOnServer(token) {
+// //      if (isSubscribed) {
+// //           return database.ref('device_ids')
+// //                .equalTo(token)
+// //                .on('child_added', snapshot => snapshot.ref.remove());
+// //      }
+// //
+// //      database.ref('device_ids').once('value')
+// //           .then(snapshots => {
+// //                let deviceExists = false;
+// //
+// //                snapshots.forEach(childSnapshot => {
+// //                     if (childSnapshot.val() === token) {
+// //                          deviceExists = true;
+// //                          return console.log('Device already registered.');
+// //                     }
+// //
+// //                });
+// //
+// //                if (!deviceExists) {
+// //                     console.log('Device subscribed');
+// //                     return database.ref('device_ids').push(token);
+// //                }
+// //           });
+// // }
+
+// // function unsubscribeUser() {
+// //      messaging.deleteToken(userToken)
+// //           .then(() => {
+// //                updateSubscriptionOnServer(userToken);
+// //                isSubscribed = false;
+// //                userToken = null;
+// //                localStorage.removeItem('pushToken');
+// //                updateBtn();
+// //           })
+// //           .catch(err => console.log('Error unsubscribing', err));
+// // }
+
+// if ("serviceWorker" in navigator) {
+//      navigator.serviceWorker
+//           .register('/Countdown-timer/firebase-messaging-sw.js', {
+//                scope: "/Countdown-timer/"
 //           })
-//           .catch(err => console.log('Denied', err));
-// }
-
-
-// function updateSubscriptionOnServer(token) {
-//      if (isSubscribed) {
-//           return database.ref('device_ids')
-//                .equalTo(token)
-//                .on('child_added', snapshot => snapshot.ref.remove());
-//      }
-//
-//      database.ref('device_ids').once('value')
-//           .then(snapshots => {
-//                let deviceExists = false;
-//
-//                snapshots.forEach(childSnapshot => {
-//                     if (childSnapshot.val() === token) {
-//                          deviceExists = true;
-//                          return console.log('Device already registered.');
-//                     }
-//
-//                });
-//
-//                if (!deviceExists) {
-//                     console.log('Device subscribed');
-//                     return database.ref('device_ids').push(token);
-//                }
+//           .then(function(registration) {
+//                console.log("[Firebase serviceWorker] Registered. ");
+//                messaging.useServiceWorker(registration);
+//                // if (localStorage.getItem("pushToken")) {
+//                //      initializePush();
+//                // }
+//                messaging.requestPermission()
+//                     .then(function() {
+//                          console.log("[Firebase] Permission granted.");
+//                          return messaging.getToken();
+//                     })
+//                     .then(function(token) {
+//                          console.log(token);
+//                          // updateSubscriptionOnServer(token);
+//                          // isSubscribed = true;
+//                          // userToken = token;
+//                          // localStorage.setItem("pushToken", token);
+//                     })
+//                     .catch(function(err) {
+//                          console.log(err);
+//                     });
+//           })
+//           .then(function(registration) {
+//                console.log(registration);
+//           })
+//           .catch(function(err) {
+//                console.log("[Firebase serviceWorker] Failed to register. ", err);
 //           });
 // }
 
-// function unsubscribeUser() {
-//      messaging.deleteToken(userToken)
-//           .then(() => {
-//                updateSubscriptionOnServer(userToken);
-//                isSubscribed = false;
-//                userToken = null;
-//                localStorage.removeItem('pushToken');
-//                updateBtn();
-//           })
-//           .catch(err => console.log('Error unsubscribing', err));
-// }
-
-if ("serviceWorker" in navigator) {
-     navigator.serviceWorker
-          .register('/Countdown-timer/firebase-messaging-sw.js', {
-               scope: "/Countdown-timer/"
-          })
-          .then(function(registration) {
-               console.log("[Firebase serviceWorker] Registered. ");
-               messaging.useServiceWorker(registration);
-               // if (localStorage.getItem("pushToken")) {
-               //      initializePush();
-               // }
-               messaging.requestPermission()
-                    .then(function() {
-                         console.log("[Firebase] Permission granted.");
-                         return messaging.getToken();
-                    })
-                    .then(function(token) {
-                         console.log(token);
-                         // updateSubscriptionOnServer(token);
-                         // isSubscribed = true;
-                         // userToken = token;
-                         // localStorage.setItem("pushToken", token);
-                    })
-                    .catch(function(err) {
-                         console.log(err);
-                    });
-          })
-          .then(function(registration) {
-               console.log(registration);
-          })
-          .catch(function(err) {
-               console.log("[Firebase serviceWorker] Failed to register. ", err);
-          });
-}
-
-// messaging.onMessage(payload => {
-//
-//     const snackbarContainer = document.querySelector('#snackbar');
-//
-//     let data = {
-//         message: payload.notification.title,
-//         timeout: 5000,
-//         actionHandler() {
-//             location.reload();
-//         },
-//         actionText: 'Reload'
-//    };
-//     snackbarContainer.MaterialSnackbar.showSnackbar(data);
-// });
+// // messaging.onMessage(payload => {
+// //
+// //     const snackbarContainer = document.querySelector('#snackbar');
+// //
+// //     let data = {
+// //         message: payload.notification.title,
+// //         timeout: 5000,
+// //         actionHandler() {
+// //             location.reload();
+// //         },
+// //         actionText: 'Reload'
+// //    };
+// //     snackbarContainer.MaterialSnackbar.showSnackbar(data);
+// // });
 
 
 
