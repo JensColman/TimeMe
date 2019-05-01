@@ -1,11 +1,92 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<% include header %>
+
+<body>
+
+    <!--------------- Menu --------------->
+
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span class="burger"></span>
+            <span class="burger"></span>
+            <span class="burger"></span>
+            <ul id="menu">
+                <h4 class="points"><span id="points">0</span> points</h4>
+                <a href="index.html">
+                    <li>Timer</li>
+                </a>
+                <a href="challenges.html">
+                    <li>Challenges</li>
+                </a>
+                <a href="usePoints.html">
+                    <li>Use points</li>
+                </a>
+                <a href="videoResources.html">
+                    <li>Video resources</li>
+                </a>
+                <a href="extraIdeas.html">
+                    <li>Extra ideas</li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+
+    <!--------------- Push notifications --------------->
+
+    <!-- <div id="push-bar" class="push">
+		<h4 class="pushTitle">Allow Push-notifications to get notified when the timer has run out.</h4>
+		<button id="push-button" disabled>Subscribe</button>
+		<br>
+		<form action="#" class="pushForm">
+			<input id="input-title">
+			<label for="input-title">Post Title</label>
+			<button type="submit" id="add-post">Add Post</button>
+		</form>
+
+		<ul id="list"></ul>
+
+		<div id="snackbar" class="mdl-js-snackbar mdl-snackbar">
+			<div class="mdl-snackbar__text"></div>
+			<button class="mdl-snackbar__action" type="button"></button>
+		</div>
+	</div> -->
+
+    <!--------------- Sections --------------->
+
+    <section id="main" class="main">
+
+        <div class="active-counter">
+            <div class="counter-2">
+                <h2>
+                    <span class="days2" id="days"></span><span class="day-hour2" id="days2"></span><br>
+                    <span class="hours2" id="hours"></span><span class="hour-minutes2" id="hours2"></span>
+                    <span class="hours2" id="minutes"></span><span class="hour-minutes2" id="minutes2"></span>
+                    <span class="hours2" id="seconds"></span><span class="hour-minutes2" id="seconds2"></span>
+                </h2>
+                <h3 class="h3Kleiner">until release</h3>
+            </div>
+
+            <div class="set-counter">
+                <h3>Set a timer for your release.</h3>
+                <form>
+                    <input type="datetime-local" id="setTimer" name="timeSet">
+                    <input type="button" value="Start" id="calculateTime" class="random-timer">
+                </form>
+            </div>
+        </div>
+
+        <div class="disabled-counter">
+            <div class="counter-1">
+                <h2>
+                    <span class="days" id="days"></span><span class="day-hour" id="days2"></span><br>
+                    <span class="hours" id="hours"></span><span class="hour-minutes" id="hours2"></span>
+                    <span class="hours" id="minutes"></span><span class="hour-minutes" id="minutes2"></span>
+                    <span class="hours" id="seconds"></span><span class="hour-minutes" id="seconds2"></span>
+                </h2>
+                <h3>until release</h3>
+            </div>
+        </div>
+
+    </section>
+
+<% include footer %>
