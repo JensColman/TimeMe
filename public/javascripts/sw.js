@@ -1,6 +1,6 @@
 const publicVapidKey = 'BHT-WtcoRmdI9-3C9dkXG-0HWnpivaGP8XgO6UW_8-tUXNFWRAoHjQ7KCXBbi7eQC-2Ml_7QyB17cxP2z8I4uoY';
 
-// Check for service worker
+//Check for service worker
 if ("serviceWorker" in navigator) {
     send().catch(err => console.error(err));
 }
@@ -9,8 +9,8 @@ if ("serviceWorker" in navigator) {
 async function send() {
     // Register serviceWorker
     console.log('Registering sw');
-    const register = await navigator.serviceWorker.register('/service-worker.js', {
-        scope: '/'
+    const register = await navigator.serviceWorker.register('/javascripts/service-worker.js', {
+        scope: '/javascripts//'
     });
     console.log('Registered sw');
 
@@ -49,3 +49,10 @@ function urlBase64ToUint8Array(base64String) {
     }
     return outputArray;
 }
+
+// Plaats dit in de console als het niet lukt om de service worker te registreren.
+// navigator.serviceWorker.getRegistrations().then(function (registrations) {
+//     for (let registration of registrations) {
+//         registration.unregister()
+//     }
+// });
