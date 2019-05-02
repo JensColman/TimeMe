@@ -26,9 +26,4 @@ router.get('/extraIdeas', function (req, res, next) {
   res.render('extraIdeas', { page: 'Extra Ideas', menuId: 'extraIdeas' });
 });
 
-// // GET service-worker.js
-// router.get('/service-worker', function (req, res, next) {
-//   res.render('service-worker', { page: 'Service Worker', menuId: 'service-worker' });
-// });
-
 module.exports = router;

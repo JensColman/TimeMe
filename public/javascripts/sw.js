@@ -10,7 +10,7 @@ async function send() {
     // Register serviceWorker
     console.log('Registering sw');
     const register = await navigator.serviceWorker.register('/javascripts/service-worker.js', {
-        scope: '/javascripts//'
+        scope: '/javascripts/'
     });
     console.log('Registered sw');
 
@@ -49,10 +49,3 @@ function urlBase64ToUint8Array(base64String) {
     }
     return outputArray;
 }
-
-// Plaats dit in de console als het niet lukt om de service worker te registreren.
-// navigator.serviceWorker.getRegistrations().then(function (registrations) {
-//     for (let registration of registrations) {
-//         registration.unregister()
-//     }
-// });
