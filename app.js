@@ -40,8 +40,10 @@ app.use(function(err, req, res, next) {
 
 app.use(bodyParser.json());
 
-const publicVapidKey = 'BHT-WtcoRmdI9-3C9dkXG-0HWnpivaGP8XgO6UW_8-tUXNFWRAoHjQ7KCXBbi7eQC-2Ml_7QyB17cxP2z8I4uoY';
-const privateVapidKey = 'MxhjAwgRocjmhe4RGM3bcoamn-O29gLY7gV42qpTdQ0';
+const vapidKeys = webpush.generateVAPIDKeys();
+
+const publicVapidKey = vapidKeys.publicKey;
+const privateVapidKey = vapidKeys.privateKey;
 
 webpush.setVapidDetails('mailto:devaccjens@gmail.com', publicVapidKey, privateVapidKey);
 
@@ -59,6 +61,9 @@ app.post('/subscribe', (req, res) => {
   // Pass object into sendNotification
   webpush.sendNotification(subscription, payload).catch(err => console.error(err));
 });
+
+
+
 
 
 
