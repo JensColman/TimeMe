@@ -38,29 +38,29 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
-const vapidKeys = webpush.generateVAPIDKeys();
+// const vapidKeys = webpush.generateVAPIDKeys();
 
-const publicVapidKey = vapidKeys.publicKey;
-const privateVapidKey = vapidKeys.privateKey;
+// const publicVapidKey = vapidKeys.publicKey;
+// const privateVapidKey = vapidKeys.privateKey;
 
-webpush.setVapidDetails('mailto:devaccjens@gmail.com', publicVapidKey, privateVapidKey);
+// webpush.setVapidDetails('mailto:devaccjens@gmail.com', publicVapidKey, privateVapidKey);
 
-// Subscribe to route
-app.post('/subscribe', (req, res) => {
-  // Get pushSubscription object
-  const subscription = req.body;
+// // Subscribe to route
+// app.post('/subscribe', (req, res) => {
+//   // Get pushSubscription object
+//   const subscription = req.body;
 
-  // Send 201 - resource created
-  res.status(201).json({});
+//   // Send 201 - resource created
+//   res.status(201).json({});
 
-  // Create payload
-  const payload = JSON.stringify({title: 'Push Test'});
+//   // Create payload
+//   const payload = JSON.stringify({title: 'Push Test'});
 
-  // Pass object into sendNotification
-  webpush.sendNotification(subscription, payload).catch(err => console.error(err));
-});
+//   // Pass object into sendNotification
+//   webpush.sendNotification(subscription, payload).catch(err => console.error(err));
+// });
 
 
 
