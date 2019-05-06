@@ -1,36 +1,44 @@
 firebase.initializeApp({
     'messagingSenderId': '525608487167'
-})
+});
+
 const messaging = firebase.messaging();
-function initFirebaseMessagingRegistration() {
-    messaging
-        .requestPermission()
-        .then(function () {
-            messageElement.innerHTML = "Got notification permission";
-            console.log("Got notification permission");
-            return messaging.getToken();
-        })
-        .then(function (token) {
-            // print the token on the HTML page
-            tokenElement.innerHTML = "Token is " + token;
-        })
-        .catch(function (err) {
-            errorElement.innerHTML = "Error: " + err;
-            console.log("Didn't get notification permission", err);
-        });
-}
+
+// let userToken = null;
+// let isSubscribed = false;
+
+// const vapidKeys = messaging.generateVAPIDKeys();
+// messaging.usePublicVapidKey(vapidKeys.publicKey);
+
+messaging
+    .requestPermission()
+    .then(function () {
+        console.log("[Firebase] Got notification permission");
+        return messaging.getToken();
+    })
+    .then(function (token) {
+        console.log('[Firebase] Token is ' + token);
+        // localStorage.setItem('firebaseToken', token);
+
+    })
+    .catch(function (err) {
+        errorElement.innerHTML = "Error: " + err;
+        console.log("[Firebase] Didn't get notification permission", err);
+    });
+
 messaging.onMessage(function (payload) {
-    console.log("Message received. ", JSON.stringify(payload));
+    console.log("[Firebase] Message received. ", JSON.stringify(payload));
     notificationElement.innerHTML = notificationElement.innerHTML + " " + payload.data.notification;
 });
+
 messaging.onTokenRefresh(function () {
     messaging.getToken()
         .then(function (refreshedToken) {
-            console.log('Token refreshed.');
+            console.log('[Firebase] Token refreshed.');
             tokenElement.innerHTML = "Token is " + refreshedToken;
         }).catch(function (err) {
             errorElement.innerHTML = "Error: " + err;
-            console.log('Unable to retrieve refreshed token ', err);
+            console.log('[Firebase] Unable to retrieve refreshed token ', err);
         });
 });
 
