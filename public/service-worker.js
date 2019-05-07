@@ -6,18 +6,13 @@ var VERSION = "Version_001";
 var cacheName = APP_PREFIX + VERSION;
 // Aanduiden welke files er gecached moeten worden.
 var cacheFiles = [
-     // "/javascripts/",
-     // "/Countdown-timer/index.html",
-     // "/Countdown-timer/challenges.html",
-     // "/Countdown-timer/extraIdeas.html",
-     // "/Countdown-timer/usePoints.html",
-     // "/Countdown-timer/videoResources.html",
-     // "/Countdown-timer/scripts/cacheSaver.js",
-     // "/Countdown-timer/scripts/notifications.js",
-     // "/Countdown-timer/scripts/sidebar.js",
-     // "/Countdown-timer/scripts/styling.js",
-     // "/Countdown-timer/scripts/timer.js",
-     // "/Countdown-timer/styles/index.css",
+     "/javascripts/cacheSaver.js",
+     "/javascripts/firebase-sw.js",
+     "/javascripts/notifications.js",
+     "/javascripts/sidebar.js",
+     "/javascripts/styling.js",
+     "/javascripts/timer.js",
+     "/stylesheets/index.css",
      "https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,400,700"
 ];
 
