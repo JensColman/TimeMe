@@ -1,45 +1,43 @@
-/*jshint esversion: 6 */
-
 // ---------------------- To do ---------------------- \\
 
 var consoleCss1 = "background: #222; color: #BADA55; margin-bottom: 0.3em;";
 var consoleCss2 = "background: #0EE; color: #900;";
 
-console.log("%c %s", consoleCss1, "---------------------------------------- ");
-//console.log("");
-console.log("%c %s", consoleCss1, "To do:");
+// console.log("%c %s", consoleCss1, "---------------------------------------- ");
+// //console.log("");
+// console.log("%c %s", consoleCss1, "To do:");
 
-// To do:
-console.log(
-     "%c %s",
-     consoleCss1,
-     "- Timer laten afgaan als de pagina niet open is (door gebruik te maken van systeemnotificaties ipv browsernotificaties)."
-);
-console.log(
-     "%c %s",
-     consoleCss1,
-     "---------- Gebruik notifications / Push API in combinatie Service Worker."
-);
-console.log(
-     "%c %s",
-     consoleCss1,
-     "- Beschikbaar maken voor meerdere browsers."
-);
-console.log(
-     "%c %s",
-     consoleCss1,
-     "- Een knop maken op de index.html om een random tijd in te stellen."
-);
-console.log(
-     "%c %s",
-     consoleCss1,
-     "- Wanneer een challenge is aangeklikt, dient deze gemarkeerd te worden als 'Challenge completed'."
-);
+// // To do:
+// console.log(
+//      "%c %s",
+//      consoleCss1,
+//      "- Timer laten afgaan als de pagina niet open is (door gebruik te maken van systeemnotificaties ipv browsernotificaties)."
+// );
+// console.log(
+//      "%c %s",
+//      consoleCss1,
+//      "---------- Gebruik notifications / Push API in combinatie Service Worker."
+// );
+// console.log(
+//      "%c %s",
+//      consoleCss1,
+//      "- Beschikbaar maken voor meerdere browsers."
+// );
+// console.log(
+//      "%c %s",
+//      consoleCss1,
+//      "- Een knop maken op de index.html om een random tijd in te stellen."
+// );
+// console.log(
+//      "%c %s",
+//      consoleCss1,
+//      "- Wanneer een challenge is aangeklikt, dient deze gemarkeerd te worden als 'Challenge completed'."
+// );
 
-// End to do
-//console.log("");
-console.log("%c %s", consoleCss1, "---------------------------------------- ");
-console.log("");
+// // End to do
+// //console.log("");
+// console.log("%c %s", consoleCss1, "---------------------------------------- ");
+// console.log("");
 
 // ---------------------- Some variables ---------------------- \\
 

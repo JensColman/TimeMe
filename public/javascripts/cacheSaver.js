@@ -7,8 +7,8 @@
 if ("serviceWorker" in navigator) {
      // Gebruik een absolute path als je gebruik maakt van Github, anders werkt het niet! Zie https://gist.github.com/kosamari/7c5d1e8449b2fbc97d372675f16b566e voor meer info.
      navigator.serviceWorker
-          .register("/javascripts/service-worker.js", {
-               scope: "/javascripts/"
+          .register("/service-worker.js", {
+               scope: "/"
           })
           .then(function(registration) {
                console.log("[serviceWorker] Registered. ");
