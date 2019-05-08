@@ -116,6 +116,8 @@ function sendPushMessage() {
 
 
 
+
+
 // Plaats dit in de terminal om te testen
 /*
 curl -X POST -H "Authorization: key=AAAAemC1CP8:APA91bF5LuwitLSDz2qGHm2vP02CPDtcTiX2WwrPNREY5-bGP-JlfuBjkxAhHQparpW1Shg7Fa8tNcPWLVrVI-FjMEYYTssB7UBQ-jeSXzmS9m8XP-QIZXepW4TeZrIQtWhWnRzwIwAt" -H "Content-Type: application/json" -d '{

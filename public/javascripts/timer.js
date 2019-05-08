@@ -437,3 +437,4 @@ calculateTime.addEventListener("click", function() {
           isItDoneYet();
      }, 1000);
 });
+
