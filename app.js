@@ -6,6 +6,7 @@ const logger = require('morgan');
 const webpush = require('web-push');
 const bodyParser = require('body-parser');
 
+
 const indexRouter = require('./routes/index');
 
 const app = express();
@@ -37,6 +38,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 
 
