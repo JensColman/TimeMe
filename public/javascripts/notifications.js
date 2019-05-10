@@ -11,7 +11,7 @@ Notification.requestPermission().then(function(result) {
           return;
      }
      // Do something with the granted permission.
-     console.log(result);
+     // console.log(result);
      //PushManager.subscribe();
 });
 

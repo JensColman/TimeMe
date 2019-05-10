@@ -8,6 +8,8 @@ var cacheName = APP_PREFIX + VERSION;
 var cacheFiles = [
      "/javascripts/cacheSaver.js",
      "/javascripts/firebase-sw.js",
+     "/javascripts/firebase-database.js",
+     "/javascripts/alert.js",
      "/javascripts/notifications.js",
      "/javascripts/sidebar.js",
      "/javascripts/styling.js",

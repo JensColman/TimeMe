@@ -1,11 +1,20 @@
-firebase.initializeApp({
-    'messagingSenderId': '525608487167'
-});
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyBbQXWnrqPPSlu2hGL8BtoCoxs8FtjxJVM",
+    authDomain: "timeme-10a73.firebaseapp.com",
+    databaseURL: "https://timeme-10a73.firebaseio.com",
+    projectId: "timeme-10a73",
+    storageBucket: "timeme-10a73.appspot.com",
+    messagingSenderId: "525608487167",
+    appId: "1:525608487167:web:ec5239204c003bb0"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
 
-// let userToken = null;
-// let isSubscribed = false;
+// ---------------------- Firebase Cloud Messaging ---------------------- \\
 
 messaging.usePublicVapidKey("BKPMMaQ40J4mNXXo41dSUud6R7NqGnSh4d2VF9a0sz_iGOM6llyhtWHrkx1JxOzWAusX4fUhpjekBbn-di7-lLI");
 
@@ -13,22 +22,11 @@ messaging.requestPermission()
     .then(function () {
         console.log("[Firebase] Got notification permission");
         return messaging.getToken();
-        // .then(function (currentToken) {
-        //     if (currentToken) {
-        //         sendTokenToServer(currentToken);
-        //     } else {
-        //         console.log('No Instance ID token available. Request permission to generate one.');
-        //         setTokenSentToServer(false);
-        //     }
-        // }).catch(function(err) {
-        //     console.log('An error occurred while retrieving token. ', err);
-        //     setTokenSentToServer(false);
-        // });
     })
     .then(function (token) {
         window.localStorage.setItem('firebaseToken', token);
-        console.log('[Firebase] Token is ' + token);
-        console.log('[Firebase] LocalStorage - firebaseToken: ' + window.localStorage.getItem('firebaseToken'));
+        // console.log('[Firebase] Token is ' + token);
+        // console.log('[Firebase] LocalStorage - firebaseToken: ' + window.localStorage.getItem('firebaseToken'));
         if(token) {
                 sendTokenToServer(token);
             } else {
@@ -109,15 +107,6 @@ function sendPushMessage() {
 
 
 
-
-
-
-
-
-
-
-
-
 // Plaats dit in de terminal om te testen
 /*
 curl -X POST -H "Authorization: key=AAAAemC1CP8:APA91bF5LuwitLSDz2qGHm2vP02CPDtcTiX2WwrPNREY5-bGP-JlfuBjkxAhHQparpW1Shg7Fa8tNcPWLVrVI-FjMEYYTssB7UBQ-jeSXzmS9m8XP-QIZXepW4TeZrIQtWhWnRzwIwAt" -H "Content-Type: application/json" -d '{
@@ -144,3 +133,19 @@ curl -X POST -H "Authorization: key=AAAAemC1CP8:APA91bF5LuwitLSDz2qGHm2vP02CPDtc
     "to": "USER_TOKEN"
 }
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
