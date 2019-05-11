@@ -9,6 +9,7 @@ const request = require('request');
 const firebase = require("firebase/app");
 const database = require("firebase/database");
 const messaging = require("firebase/messaging");
+const CronJob = require("cron").CronJob;
 
 
 const indexRouter = require('./routes/index');
@@ -134,7 +135,7 @@ function errData(err) {
 }
 
 /*
-- App.js: 
+- App.js: CronJob instellen
 - App.js: Zorg ervoor dat de firebase token opgehaald kan worden
 - App.js: haal data van gebruiker uit database
 - App.js: vergelijk lokale naam met naam uit database

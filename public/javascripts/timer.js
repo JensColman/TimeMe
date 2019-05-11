@@ -413,6 +413,9 @@ calculateTime.addEventListener("click", function() {
      );
      console.log("");
 
+     // Zend de informatie van de gebruiker naar de database
+     writeUserData("User");
+
      // Parsed de ingestelde tijd om te kunnen gebruiken tijdens de bewerking.
      var countdownDate3 = Date.parse(countdownDate2);
      // Parsed de ingestelde tijd om te kunnen gebruiken tijdens de bewerking.

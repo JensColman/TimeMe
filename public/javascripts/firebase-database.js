@@ -14,8 +14,8 @@ var notification = {
 
 function sendToDatabase() {
     var DBdata = {
-        'messagingToken': window.localStorage.getItem('firebaseToken'),
-        'setTime': "YYYYMMDD"
+      messagingToken: window.localStorage.getItem("firebaseToken"),
+      setTime: window.localStorage.getItem("timerSetting")
     };
 
     UsersRef.push(DBdata);
@@ -28,8 +28,8 @@ const userId = window.localStorage.getItem('firebaseToken');
 
 function writeUserData(userId) {
     database.ref("Users/" + userId).set({
-        'messagingToken': window.localStorage.getItem('firebaseToken'),
-        'setTime': "YYYYMMDD"
+      messagingToken: window.localStorage.getItem("firebaseToken"),
+      setTime: window.localStorage.getItem("timerSetting")
     });
 }
 
@@ -57,6 +57,8 @@ function gotData(data) {
         var setTime = timerSettings.setTime;
         console.log(setTime);
         // userID = messagingTokens;
+
+        // YYYYMMDD komt 2 keer voor omdat er niet gecontrolleerd wordt met de lokale token, het geeft alle users weer uit de database
         
     }
 
