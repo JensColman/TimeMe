@@ -1,4 +1,2 @@
 # TimeMe
-What do we say to the god of descriptions? 
-
-Not today!
+This project is temporarily paused, it will be continued in the future.
